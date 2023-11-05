@@ -1,28 +1,86 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+.hidden {
+  visibility: hidden;
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+
+
 }
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.card {
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 10px;
+  display: inline-block;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card__info-item {
+  display: grid;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  // max-width: 100%;
+  // height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.search-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+  background: blue;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.gallery {
+  margin: 0 auto;
+  flex-wrap: wrap;
+  max-width: 1140 px;
+  padding-top: 70px;
+  gap: 40px;
+}
+
+.btn {
+  margin: 30px 0 30px 30px;
 }
