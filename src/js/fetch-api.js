@@ -30,7 +30,5 @@ async function fetchPhoto(searchQuery, page) {
     }
 }
 
-
-
 export { fetchPhoto };
 
