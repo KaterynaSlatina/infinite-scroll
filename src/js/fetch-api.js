@@ -15,7 +15,9 @@ async function fetchPhoto(searchQuery, page) {
     per_page: 40,
     page,
   };
-   
+    if (searchQuery.trim() === '') {
+        return;
+    } else {
         try {
             const resp = await axios.get(`${ BASE_URL }`, { params });
             console.log(resp.data);
@@ -25,7 +27,7 @@ async function fetchPhoto(searchQuery, page) {
             throw error
             Notiflix.Notify.failure('Щось пішло не так в "fetchData"');
         }
-    
+    }
 }
 
 export { fetchPhoto };
