@@ -19,7 +19,7 @@ async function fetchPhoto(searchQuery, page) {
         return;
     } else {
         try {
-            const resp = await axios.get(`${ BASE_URL }, { params }`);
+            const resp = await axios.get(`${ BASE_URL }`, { params });
             console.log(resp.data);
             return resp.data;
 
