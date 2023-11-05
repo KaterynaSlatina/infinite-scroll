@@ -15,7 +15,7 @@ async function fetchPhoto(searchQuery, page) {
     per_page: 40,
     page,
   };
-    if (searchQuery.trim() === '') {
+    if (q.trim() === '') {
         return;
     } else {
         try {
