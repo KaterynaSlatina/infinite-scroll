@@ -15,6 +15,9 @@ async function fetchPhoto(searchQuery, page) {
     per_page: 40,
     page,
   };
+    // if (searchQuery.trim() === '') {
+    //     return;
+     
         try {
             const resp = await axios.get(`${ BASE_URL }`, { params });
             console.log(resp.data);

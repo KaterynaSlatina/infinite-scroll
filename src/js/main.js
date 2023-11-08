@@ -20,8 +20,11 @@ async function searchPhoto(evt) {
     evt.preventDefault();
     gallery.innerHTML = '';
     page = 1;
-     searchQuery = evt.target.elements.searchQuery.value;
-
+    searchQuery = evt.target.elements.searchQuery.value.trim();
+    
+    if (searchQuery.trim() === '') {
+            Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+ } else
     try {
         const resp = await fetchPhoto(searchQuery, page);
 
@@ -33,7 +36,18 @@ async function searchPhoto(evt) {
            
              evt.target.elements.searchQuery.value = '';
  
-        } else {
+        } if (resp.hits.length > 40) {
+            observer.observe(guard);
+            const guard = document.querySelector('.guard');
+
+            const options = {
+                root: null,
+                rootMargin: "300px",
+            };
+            const observer = new IntersectionObserver(handleLoadMore, options);
+        }
+        
+        else {
            
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         }
@@ -62,10 +76,10 @@ function handleLoadMore(entries) {
     }
   });
 }
-observer.observe(guard);
+
 async function onSearchQuery() {
 
-    searchQuery ++;
+    page +=1;
 
     try {
         const resp = await fetchPhoto(searchQuery, page);
@@ -73,7 +87,7 @@ async function onSearchQuery() {
         if (resp.hits.length > 0) {
             gallery.insertAdjacentHTML('beforeend', createMarkup(resp.hits));
         
-        }else {
+        } else {
            
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         }
